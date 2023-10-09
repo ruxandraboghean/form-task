@@ -1,0 +1,30 @@
+GET http://127.0.0.1:3000/audiences
+
+###
+
+GET http://127.0.0.1:3000/audiences/6523ca054ec1256e8fec3c58
+
+###
+
+POST http://127.0.0.1:3000/audiences
+Content-Type: application/json
+
+{
+    "customers": "Customers",
+    "requirements": "no requirements",
+    "excluded": "excluded",
+    "positions": "positions"
+}
+
+###
+
+DELETE http://127.0.0.1:3000/audiences/6523c83d3480a9e8cdb862be
+
+###
+
+PATCH  http://127.0.0.1:3000/audiences/6523ca054ec1256e8fec3c58
+Content-Type: application/json
+
+{
+    "customers": "Customers new"
+}
