@@ -3,13 +3,11 @@ import { Input } from "../Input";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Form.module.scss";
+import questions from "../../data/questions";
 
-type FormProps = {
-  questions: string[];
-};
 const url: string = "http://127.0.0.1:3000/audiences";
 
-export const Form: FC<FormProps> = ({ questions }) => {
+export const Form = () => {
   const [inputValues, setInputValues] = useState<string[]>(
     new Array(questions.length).fill("")
   );

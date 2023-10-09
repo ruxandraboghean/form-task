@@ -1,0 +1,11 @@
+@import "../../styles/mixins";
+
+.nav {
+  @include flex-column-start();
+  gap: 24px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 24px;
+  width: 20%;
+}

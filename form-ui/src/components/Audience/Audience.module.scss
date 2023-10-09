@@ -1,0 +1,16 @@
+@import "../../styles/mixins";
+
+.audience_wrapper {
+  @include flex-column-start();
+  background-color: #fff;
+  padding: 24px;
+  width: 500px;
+  max-height: 200px;
+  gap: 24px;
+  border-radius: 5px;
+
+  .audience {
+    @include flex-column-start();
+    gap: 4px;
+  }
+}
