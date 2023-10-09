@@ -1,12 +1,6 @@
 {
   "version": 2,
-  "functions": {
-    "./index.js": {
-      "runtime": "nodejs16.x",
-      "memory": 1024
-    }
-  },
-  "routes": [
+   "routes": [
     {
       "src": "/api(.*)",
       "dest": "./routes/audiences.js"
