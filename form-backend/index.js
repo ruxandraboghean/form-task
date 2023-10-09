@@ -20,3 +20,5 @@ const audienceRouter = require('./routes/audiences.js')
 app.use('/audiences', audienceRouter)
 
 app.listen(3000, () => console.log("Server started"))
+
+module.exports = app;

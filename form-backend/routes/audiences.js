@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Audience = require("../models/audience");
-const audience = require("../models/audience");
 
 //GET ALL
 router.get("/", async (req, res) => {
