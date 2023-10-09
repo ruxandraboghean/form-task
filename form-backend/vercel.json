@@ -2,8 +2,8 @@
   "version": 2,
    "routes": [
     {
-      "src": "/api(.*)",
-      "dest": "./routes/audiences.js"
+      "src": "/(.*)",
+      "dest": "routes/audiences.js"
     }
   ]
 }
