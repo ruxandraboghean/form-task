@@ -1,4 +1,3 @@
-const url: string =
-  "https://form-task-agqjyc3pd-ruxandraboghean.vercel.app/audiences";
+const url: string = process.env.REACT_APP_API_URL as string;
 
 export default url;
