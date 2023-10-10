@@ -3,7 +3,7 @@ import { Audience } from "../Audience";
 import noData from "../../images/no-data.png";
 import styles from "./Audiences.module.scss";
 import fetchData from "../../data/fetchData";
-import LoadingSpinner from "../Spinner";
+import Spinner from "../Spinner";
 
 export const Audiences = () => {
   const [audiences, setAudiences] = useState<Audience[]>([]);
@@ -20,7 +20,7 @@ export const Audiences = () => {
     getData("loading");
   }, []);
 
-  if (loading) return <LoadingSpinner color="#fff" size={150} />;
+  if (loading) return <Spinner color="#fff" size={150} />;
 
   if (audiences.length === 0) {
     return (

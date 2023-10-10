@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "./Form.module.scss";
 import questions from "../../data/questions";
 import url from "../../data/url";
-import LoadingSpinner from "../Spinner";
+import Spinner from "../Spinner";
 
 export const Form = () => {
   const [inputValues, setInputValues] = useState<string[]>(
@@ -88,7 +88,7 @@ export const Form = () => {
           SUBMIT
         </button>
       )}
-      {loading && <LoadingSpinner color="#000" size={35} />}
+      {loading && <Spinner color="#000" size={35} />}
       {formValid && (
         <span className={styles.error}>
           Please ensure that all fields are filled in before submitting
