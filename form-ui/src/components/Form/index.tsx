@@ -5,16 +5,19 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "./Form.module.scss";
 import questions from "../../data/questions";
 import url from "../../data/url";
+import LoadingSpinner from "../Spinner";
 
 export const Form = () => {
   const [inputValues, setInputValues] = useState<string[]>(
     new Array(questions.length).fill("")
   );
-
+  const [loading, setLoading] = useState<boolean>(false);
   const [formValid, setFormValid] = useState<boolean>(false);
+  const [lengthError, setLengthError] = useState<boolean>(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     const newAudience = {
       customers: inputValues[0],
       requirements: inputValues[1],
@@ -22,7 +25,7 @@ export const Form = () => {
       positions: inputValues[3],
     };
 
-    if (newAudience.customers) {
+    const submitForm = async () => {
       try {
         const response = await fetch(url, {
           method: "POST",
@@ -35,14 +38,26 @@ export const Form = () => {
         if (response.ok) {
           toast("Audience successfully created!");
           setInputValues(new Array(questions.length).fill(""));
+          setLoading(false);
+          setFormValid(false);
+          setLengthError(false);
         } else {
           console.error("Failed to create audience");
+          setLoading(false);
+          setFormValid(false);
+          setLengthError(false);
         }
       } catch (error) {
         console.error("Error:", error);
       }
+    };
+
+    if (newAudience?.customers?.length >= 5) {
+      submitForm();
     } else {
       setFormValid(true);
+      setLoading(false);
+      setLengthError(true);
     }
   };
 
@@ -63,12 +78,26 @@ export const Form = () => {
           />
         );
       })}
-      <button type="submit" onClick={handleSubmit} className={styles.button}>
-        SUBMIT
-      </button>
+      {!loading && (
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className={styles.button}
+          disabled={loading}
+        >
+          SUBMIT
+        </button>
+      )}
+      {loading && <LoadingSpinner color="#000" size={35} />}
       {formValid && (
         <span className={styles.error}>
-          Please ensure that all fields are filled in before submitting{" "}
+          Please ensure that all fields are filled in before submitting
+        </span>
+      )}
+
+      {lengthError && (
+        <span className={styles.error}>
+          Your answers must be a minimum of 5 letters.
         </span>
       )}
     </form>

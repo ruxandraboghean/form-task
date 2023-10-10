@@ -1,22 +1,27 @@
 import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import { Audience } from "../Audience";
-import url from "../../data/url";
 import noData from "../../images/no-data.png";
 import styles from "./Audiences.module.scss";
+import fetchData from "../../data/fetchData";
+import LoadingSpinner from "../Spinner";
 
 export const Audiences = () => {
   const [audiences, setAudiences] = useState<Audience[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const fetchData = async () => {
-    return fetch(url)
-      .then((res) => res.json())
-      .then((data) => setAudiences(data));
+  const getData = async (withLoading?: string) => {
+    withLoading && setLoading(true);
+    const data = await fetchData();
+    setAudiences(data);
+    setLoading(false);
   };
 
   useEffect(() => {
-    fetchData();
-  }, [audiences]);
+    getData("loading");
+  }, []);
+
+  if (loading) return <LoadingSpinner color="#fff" size={150} />;
 
   if (audiences.length === 0) {
     return (
@@ -29,9 +34,10 @@ export const Audiences = () => {
   return (
     <div className={styles.audiences}>
       {audiences?.map((audience: Audience) => {
-        return <Audience audience={audience} key={audience._id} />;
+        return (
+          <Audience audience={audience} key={audience._id} getData={getData} />
+        );
       })}
-      <ToastContainer />
     </div>
   );
 };

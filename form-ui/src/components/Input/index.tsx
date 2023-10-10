@@ -27,13 +27,18 @@ export const Input: FC<InputProps> = ({
 
   return (
     <div className={styles.input_wrapper}>
-      <label htmlFor="textInput">{question}</label>
+      <label htmlFor="textInput" className={styles.label}>
+        {question}
+        {required && <span className={styles.required}> *</span>}
+      </label>
       <input
         type="text"
         id="textInput"
         value={value}
         onChange={handleInputChange}
         required={required}
+        maxLength={25}
+        minLength={10}
       />
     </div>
   );

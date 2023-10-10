@@ -3,7 +3,7 @@
 .form {
   @include flex-column-center();
   background-color: #fff;
-  width: 80%;
+  width: 90%;
   max-height: 100%;
   padding: 24px;
   margin: 0 auto;
@@ -31,5 +31,6 @@
 
   .error {
     color: palevioletred;
+    text-align: center;
   }
 }

@@ -1,10 +1,16 @@
 import url from "../../data/url";
 import { Button } from "../Button";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Audience.module.scss";
 
-export const Audience = ({ audience }: { audience: Audience }) => {
+export const Audience = ({
+  audience,
+  getData,
+}: {
+  audience: Audience;
+  getData: () => void;
+}) => {
   const handleDelete = async () => {
     if (audience) {
       try {
@@ -17,6 +23,8 @@ export const Audience = ({ audience }: { audience: Audience }) => {
         } else {
           console.error("Failed to create audience");
         }
+
+        getData();
       } catch (error) {
         console.error("Error:", error);
       }
@@ -26,12 +34,26 @@ export const Audience = ({ audience }: { audience: Audience }) => {
   return (
     <div className={styles.audience_wrapper}>
       <div className={styles.audience}>
-        <span>CUSTOMERS: {audience.customers}</span>
-        <span>Requirements: {audience.requirements}</span>
-        <span>Excluded: {audience.excluded}</span>
-        <span>Positions: {audience.positions}</span>
+        <div className={styles.audience_details}>
+          <span className={styles.detail_header}>Customers:</span>
+          <span> {audience.customers}</span>
+        </div>
+        <div className={styles.audience_details}>
+          <span className={styles.detail_header}>Requirements:</span>
+          <span> {audience.requirements}</span>
+        </div>
+        <div className={styles.audience_details}>
+          <span className={styles.detail_header}>Excluded:</span>
+          <span> {audience.excluded}</span>
+        </div>
+        <div className={styles.audience_details}>
+          <span className={styles.detail_header}>Positions:</span>
+          <span> {audience.positions}</span>
+        </div>
       </div>
-      <Button text="Delete" handleButtonClick={handleDelete} />
+      <div className={styles.button}>
+        <Button text="Delete" handleButtonClick={handleDelete} />
+      </div>
     </div>
   );
 };

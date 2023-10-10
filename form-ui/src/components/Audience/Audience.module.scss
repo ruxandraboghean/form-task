@@ -4,13 +4,34 @@
   @include flex-column-start();
   background-color: #fff;
   padding: 24px;
-  width: 500px;
-  max-height: 200px;
+  width: 400px;
+  max-height: 220px;
   gap: 24px;
   border-radius: 5px;
 
+  @include mobile() {
+    max-width: 320px;
+    max-height: 400px;
+  }
+
   .audience {
     @include flex-column-start();
-    gap: 4px;
+    gap: 8px;
+
+    .audience_details {
+      @include flex-column-center();
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 12px;
+      width: 100%;
+
+      .detail_header {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .button {
+    align-self: flex-end;
   }
 }
