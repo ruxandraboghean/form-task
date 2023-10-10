@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { ToastContainer } from "react-toastify";
 import { Audience } from "../Audience";
 import noData from "../../images/no-data.png";
 import styles from "./Audiences.module.scss";
