@@ -16,6 +16,7 @@
 
   .audience {
     @include flex-column-start();
+    width: 100%;
     gap: 8px;
 
     .audience_details {
