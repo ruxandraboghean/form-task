@@ -1,4 +1,4 @@
-import { FC, FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { Input } from "../Input";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

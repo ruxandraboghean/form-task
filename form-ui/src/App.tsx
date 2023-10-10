@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Form } from "./components/Form";
 import { Navbar } from "./components/Navbar";
 import { Audiences } from "./components/Audiences";
-
 
 function App() {
   return (
