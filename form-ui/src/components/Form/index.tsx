@@ -4,8 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Form.module.scss";
 import questions from "../../data/questions";
-
-const url: string = "http://127.0.0.1:3000/audiences";
+import url from "../../data/url";
 
 export const Form = () => {
   const [inputValues, setInputValues] = useState<string[]>(
@@ -16,8 +15,6 @@ export const Form = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log("User input values:", inputValues);
-
     const newAudience = {
       customers: inputValues[0],
       requirements: inputValues[1],
@@ -36,7 +33,6 @@ export const Form = () => {
         });
 
         if (response.ok) {
-          console.log("New audience created:", newAudience);
           toast("Audience successfully created!");
           setInputValues(new Array(questions.length).fill(""));
         } else {
@@ -57,12 +53,13 @@ export const Form = () => {
       {questions.map((q, index) => {
         return (
           <Input
-            question={q}
+            question={q.question}
             key={index}
             index={index}
             value={inputValues[index]}
             inputValues={inputValues}
             setInputValues={setInputValues}
+            required={q.required}
           />
         );
       })}

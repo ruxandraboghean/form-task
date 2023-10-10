@@ -1,10 +1,16 @@
-import styles from './Navbar.module.scss';
+import styles from "./Navbar.module.scss";
+import { GoHome } from "react-icons/go";
+import { IoMdPersonAdd } from "react-icons/io";
 
 export const Navbar = () => {
   return (
     <nav className={styles.nav}>
-      <a href="/">All audiences </a>
-      <a href="/create-audience"> Add new audience</a>
+      <a href="/">
+        <GoHome className={styles.icon} />
+      </a>
+      <a href="/create-audience">
+        <IoMdPersonAdd className={styles.icon} />
+      </a>
     </nav>
   );
 };

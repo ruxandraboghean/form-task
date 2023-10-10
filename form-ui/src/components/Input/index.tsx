@@ -7,6 +7,7 @@ type InputProps = {
   index: number;
   inputValues: string[];
   setInputValues: any;
+  required?: boolean;
 };
 
 export const Input: FC<InputProps> = ({
@@ -15,6 +16,7 @@ export const Input: FC<InputProps> = ({
   index,
   inputValues,
   setInputValues,
+  required,
 }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
@@ -31,6 +33,7 @@ export const Input: FC<InputProps> = ({
         id="textInput"
         value={value}
         onChange={handleInputChange}
+        required={required}
       />
     </div>
   );

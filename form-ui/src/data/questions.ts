@@ -1,8 +1,18 @@
-const questions: string[] = [
-  "Who are your customers?",
-  "Are there any special requirements like technology, location etc?",
-  "What types of customers should be excluded?",
-  "What are the positions of your prospects",
+const questions: { question: string; required?: boolean }[] = [
+  {
+    question: "Who are your customers?",
+    required: true,
+  },
+  {
+    question:
+      "Are there any special requirements like technology, location etc?",
+  },
+  {
+    question: "What types of customers should be excluded?",
+  },
+  {
+    question: "What are the positions of your prospects",
+  },
 ];
 
 export default questions;

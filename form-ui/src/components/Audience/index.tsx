@@ -1,6 +1,6 @@
 import url from "../../data/url";
 import { Button } from "../Button";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Audience.module.scss";
 
@@ -13,7 +13,6 @@ export const Audience = ({ audience }: { audience: Audience }) => {
         });
 
         if (response.ok) {
-          console.log("Audience deleted:", audience);
           toast("Audience successfully deleted!");
         } else {
           console.error("Failed to create audience");
@@ -23,6 +22,7 @@ export const Audience = ({ audience }: { audience: Audience }) => {
       }
     }
   };
+
   return (
     <div className={styles.audience_wrapper}>
       <div className={styles.audience}>
@@ -31,7 +31,6 @@ export const Audience = ({ audience }: { audience: Audience }) => {
         <span>Excluded: {audience.excluded}</span>
         <span>Positions: {audience.positions}</span>
       </div>
-
       <Button text="Delete" handleButtonClick={handleDelete} />
     </div>
   );
