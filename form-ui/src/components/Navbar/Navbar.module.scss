@@ -8,6 +8,10 @@
   color: #fff;
   padding: 24px;
 
+  @include mobile() {
+    flex-direction: row;
+  }
+
   .icon {
     font-size: 2rem;
   }

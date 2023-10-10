@@ -10,8 +10,13 @@
   gap: 16px;
   border-radius: 5px;
 
+  @include mobile() {
+    width: 100%;
+  }
+
   .title {
     font-size: 30px;
+    text-align: center;
   }
 
   .button {

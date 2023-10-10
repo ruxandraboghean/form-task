@@ -1,10 +1,7 @@
 @import "../../styles/mixins";
 
 .audiences {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: space-around;
+  @include flex-stretch();
   gap: 12px;
   padding: 4px 0;
   width: 100%;

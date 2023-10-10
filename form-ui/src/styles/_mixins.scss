@@ -1,3 +1,9 @@
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
 @mixin flex-column-center() {
   display: flex;
   flex-direction: column;
@@ -10,4 +16,11 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+@mixin flex-stretch() {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-around;
 }
