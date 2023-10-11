@@ -1,6 +1,6 @@
-import styles from "./Navbar.module.scss";
 import { GoHome } from "react-icons/go";
 import { IoMdPersonAdd } from "react-icons/io";
+import styles from "./Navbar.module.scss";
 
 export const Navbar = () => {
   return (

@@ -1,11 +1,12 @@
 import { FormEvent, useState } from "react";
+import { Button } from "../Button";
 import { Input } from "../Input";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import styles from "./Form.module.scss";
+import Spinner from "../Spinner";
 import questions from "../../data/questions";
 import url from "../../data/url";
-import Spinner from "../Spinner";
+import styles from "./Form.module.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Form = () => {
   const [inputValues, setInputValues] = useState<string[]>(
@@ -84,17 +85,9 @@ export const Form = () => {
           />
         );
       })}
-      {!loading && (
-        <button
-          type="submit"
-          onClick={handleSubmit}
-          className={styles.button}
-          disabled={loading}
-        >
-          SUBMIT
-        </button>
-      )}
+      {!loading && <Button text="SUBMIT" handleButtonClick={handleSubmit} />}
       {loading && <Spinner color="#000" size={35} />}
+
       {formValid && (
         <span className={styles.error}>
           Please ensure that all fields are filled in before submitting

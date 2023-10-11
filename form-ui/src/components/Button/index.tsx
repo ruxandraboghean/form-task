@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import styles from "./Button.module.scss";
 
 export const Button = ({
@@ -5,7 +6,7 @@ export const Button = ({
   handleButtonClick,
 }: {
   text: string;
-  handleButtonClick: () => void;
+  handleButtonClick: (e: FormEvent) => Promise<void>;
 }) => {
   return (
     <button className={styles.button} onClick={handleButtonClick}>

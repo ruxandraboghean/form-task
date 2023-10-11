@@ -15,5 +15,13 @@
 
   .icon {
     font-size: 2rem;
+
+    &:hover {
+      color: rgb(235, 189, 203);
+    }
+  }
+
+  .selected {
+    color: rgb(235, 189, 203);
   }
 }

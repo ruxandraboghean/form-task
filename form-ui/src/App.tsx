@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import { Audiences } from "./components/Audiences";
 
 function App() {
+
   return (
     <div className="app">
       <Navbar />
