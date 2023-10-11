@@ -52,7 +52,12 @@ export const Form = () => {
       }
     };
 
-    if (newAudience?.customers?.length >= 5) {
+    if (
+      newAudience?.customers?.length >= 5 &&
+      newAudience?.requirements?.length >= 5 &&
+      newAudience?.excluded?.length >= 5 &&
+      newAudience?.positions?.length >= 5
+    ) {
       submitForm();
     } else {
       setFormValid(true);
@@ -75,6 +80,7 @@ export const Form = () => {
             inputValues={inputValues}
             setInputValues={setInputValues}
             required={q.required}
+            maxLength={q.maxLength}
           />
         );
       })}

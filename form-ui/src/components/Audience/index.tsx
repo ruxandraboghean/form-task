@@ -36,19 +36,27 @@ export const Audience = ({
       <div className={styles.audience}>
         <div className={styles.audience_details}>
           <span className={styles.detail_header}>Customers:</span>
-          <span> {audience.customers}</span>
+          <div className={styles.text}>
+            <p> {audience.customers}</p>
+          </div>
         </div>
         <div className={styles.audience_details}>
           <span className={styles.detail_header}>Requirements:</span>
-          <span> {audience.requirements}</span>
+          <div className={styles.text}>
+            <p> {audience.requirements}</p>
+          </div>
         </div>
         <div className={styles.audience_details}>
           <span className={styles.detail_header}>Excluded:</span>
-          <span> {audience.excluded}</span>
+          <div className={styles.text}>
+            <p> {audience.excluded}</p>
+          </div>
         </div>
         <div className={styles.audience_details}>
           <span className={styles.detail_header}>Positions:</span>
-          <span> {audience.positions}</span>
+          <div className={styles.text}>
+            <p> {audience.positions}</p>
+          </div>
         </div>
       </div>
       <div className={styles.button}>

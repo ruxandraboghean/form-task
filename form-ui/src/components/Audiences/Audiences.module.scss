@@ -1,15 +1,12 @@
 @import "../../styles/mixins";
 
 .audiences {
-  gap: 12px;
+  @include flex-stretch();
+  gap: 48px;
   padding: 4px 0;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
 
-  @include mobile() {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 
 .noDataWrapper {

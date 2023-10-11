@@ -8,6 +8,7 @@ type InputProps = {
   inputValues: string[];
   setInputValues: any;
   required?: boolean;
+  maxLength: number;
 };
 
 export const Input: FC<InputProps> = ({
@@ -17,6 +18,7 @@ export const Input: FC<InputProps> = ({
   inputValues,
   setInputValues,
   required,
+  maxLength,
 }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
@@ -37,8 +39,8 @@ export const Input: FC<InputProps> = ({
         value={value}
         onChange={handleInputChange}
         required={required}
-        maxLength={25}
-        minLength={10}
+        maxLength={maxLength}
+        minLength={5}
       />
     </div>
   );
